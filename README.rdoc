@@ -1,0 +1,56 @@
+= capybara-restore_state
+
+capybara-restore_state offers the ability to execute a block where the
+initial capybara state on entering the block is returned after the block
+is executed.  This makes it possible to test things like clicking on the
+same button twice.
+
+This only works for the rack-test driver, other drivers can use the back
+buttons provided by the browser.
+
+= Installation
+
+  gem install capybara-restore_state
+
+= Source Code
+
+Source code is available on GitHub at https://github.com/jeremyevans/capybara-restore_state
+
+= Examples
+
+  require 'capybara'
+  require 'capybara/restore_state'
+
+  describe Capybara::RestoreState do
+    include Rack::Test::Methods
+    include Capybara::DSL
+    include Capybara::RestoreState
+
+    def app
+      MyRackApp
+    end
+
+    it "should allow restoring of state" do
+      # Assume Submit button takes you /a
+      visit '/'
+      page.current_path # => '/'
+
+      restore_state do
+        page.current_path # => '/'
+        click_button 'Submit'
+        page.current_path # => '/a'
+      end
+
+      page.current_path # => '/'
+      click_button 'Submit'
+      page.current_path # => '/a'
+    end
+  end
+
+= License
+
+MIT
+
+= Author
+
+Jeremy Evans <code@jeremyevans.net>
