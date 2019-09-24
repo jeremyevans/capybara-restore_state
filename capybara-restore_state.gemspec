@@ -19,4 +19,5 @@ END
 
   s.add_dependency 'rack-test', '>= 0.6'
   s.add_dependency 'capybara', '>= 2.1.0'
+  s.add_development_dependency "minitest-global_expectations"
 end
