@@ -16,8 +16,9 @@ task :default=>:spec
 
 desc "Run specs"
 task :spec do
-  sh "#{FileUtils::RUBY} spec/capybara-restore_state_spec.rb"
+  sh "#{FileUtils::RUBY} #{'-w' if RUBY_VERSION >= '3'} spec/capybara-restore_state_spec.rb"
 end
+
 ### RDoc
 
 RDOC_DEFAULT_OPTS = ["--quiet", "--line-numbers", "--inline-source", '--title', 'capybara-restore_state: Restore capybara state after block execution']
