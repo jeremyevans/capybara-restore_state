@@ -9,13 +9,19 @@ Gem::Specification.new do |s|
   s.author = "Jeremy Evans"
   s.email = "code@jeremyevans.net"
   s.homepage = "http://github.com/jeremyevans/capybara-restore_state"
-  s.files = %w(MIT-LICENSE CHANGELOG README.rdoc Rakefile) + Dir["{spec,lib}/**/*.rb"]
+  s.files = %w(MIT-LICENSE CHANGELOG README.rdoc Rakefile lib/capybara/restore_state.rb)
   s.description = <<END
 capybara-restore_state offers the ability to execute a block where the
 initial capybara state on entering the block is returned after the block
 is executed.  This makes it possible to test things like clicking on the
 same button twice.
 END
+  s.metadata = {
+    'source_code_uri'   => 'https://github.com/jeremyevans/capybara-restore_state',
+    'bug_tracker_uri'   => 'https://github.com/jeremyevans/capybara-restore_state/issues',
+    'mailing_list_uri'  => 'https://github.com/jeremyevans/capybara-restore_state/discussions',
+    'changelog_uri'     => 'https://github.com/jeremyevans/capybara-restore_state/blob/master/CHANGELOG',
+  }
 
   s.add_dependency 'rack-test', '>= 0.6'
   s.add_dependency 'capybara', '>= 2.1.0'
