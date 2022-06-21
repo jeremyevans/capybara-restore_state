@@ -1,0 +1,14 @@
+source 'https://rubygems.org'
+
+gem 'rake'
+
+if RUBY_VERSION < '2.5'
+  gem 'capybara', '<3.33'
+elsif RUBY_VERSION < '2.3'
+  gem 'capybara', '<3.2'
+else
+  gem 'capybara'
+end
+
+gem 'minitest'
+gem 'minitest-global_expectations'
