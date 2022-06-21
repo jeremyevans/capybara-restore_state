@@ -1,3 +1,7 @@
+=== master
+
+* Work with rack-test 2.0.0+ (jeremyevans)
+
 === 1.0.0 (2016-05-25)
 
 * Initial Public Release
