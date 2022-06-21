@@ -13,6 +13,12 @@ task :spec do
   sh "#{FileUtils::RUBY} #{'-w' if RUBY_VERSION >= '3'} spec/capybara-restore_state_spec.rb"
 end
 
+desc "Run tests with coverage"
+task :spec_cov do
+  ENV['COVERAGE'] = '1'
+  sh "#{FileUtils::RUBY} spec/capybara-restore_state_spec.rb"
+end
+
 ### RDoc
 
 RDoc::Task.new do |rdoc|
