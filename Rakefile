@@ -26,7 +26,7 @@ RDoc::Task.new do |rdoc|
   rdoc.options += ["--quiet", "--line-numbers", "--inline-source", '--title', 'capybara-restore_state: Restore capybara state after block execution', '--main', 'README.rdoc']
 
   begin
-    gem 'hanna-nouveau'
+    gem 'hanna'
     rdoc.options += ['-f', 'hanna']
   rescue Gem::LoadError
   end
