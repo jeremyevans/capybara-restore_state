@@ -10,7 +10,7 @@ task :default=>:spec
 
 desc "Run specs"
 task :spec do
-  sh "#{FileUtils::RUBY} #{'-w' if RUBY_VERSION >= '3'} spec/capybara-restore_state_spec.rb"
+  sh "#{FileUtils::RUBY} #{'-w' if RUBY_VERSION >= '3'} #{'-W:strict_unused_block' if RUBY_VERSION >= '3.4'} spec/capybara-restore_state_spec.rb"
 end
 
 desc "Run tests with coverage"
