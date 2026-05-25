@@ -10,5 +10,9 @@ else
   gem 'capybara'
 end
 
+if RUBY_VERSION < '2.6' && RUBY_VERSION >= '2.4'
+  gem 'rack', '= 3.2.5'
+end
+
 gem 'minitest'
 gem 'minitest-global_expectations'
